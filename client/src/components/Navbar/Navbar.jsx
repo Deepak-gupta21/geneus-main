@@ -9,11 +9,28 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { MDBIcon } from 'mdbreact';
 import { Link } from 'react-router-dom';
-import { MDBCol } from "mdbreact";
+import React, { useState } from 'react';
 
 
 function Navigation() {
-  
+  const [shows, setShows] = useState([]);
+  const [error, setError] = useState(null);
+  const [searchTerm, setSearchTerm] = useState('');
+  const handleSearch = async (event) => {
+    event.preventDefault();
+
+    try {
+      const response = await fetch(`#=${searchTerm}`);
+      const data = await response.json();
+      setShows(data.map(item => item.show));
+    } catch (error) {
+      setError(error);
+    }
+  };
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
 
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
@@ -48,16 +65,7 @@ function Navigation() {
             </NavDropdown>
           </Nav>
 
-    { /*   <Form className="d-flex">
-            <Form.Control
-              type="search"
-              placeholder="Search for anything"
-              className="my-2 bg-light"
-              aria-label="Search"
-  />     
-            <Button variant="info" className='btn btn-info'><MDBIcon icon="search" size="x"/></Button>   
-  </Form>   
-  */ }
+  {  /*
   <MDBCol md="6">
   <div className="input-group md-form form-sm form-1">
     <div className="input-group-prepend">
@@ -73,6 +81,16 @@ function Navigation() {
     />
   </div>
 </MDBCol>
+*/}
+
+<form className="search-bar" onSubmit={handleSearch}>
+<div className="search-box">
+      <MDBIcon className="search-icon ml-2" icon="search" />
+       <input type="text" placeholder="Search for anything" value={searchTerm} onChange={(event) => setSearchTerm(event.target.value)} />
+      <button type="submit">Search</button>
+     </div>
+</form>
+
 
 
 
