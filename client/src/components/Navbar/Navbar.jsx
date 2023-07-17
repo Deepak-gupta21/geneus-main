@@ -65,24 +65,6 @@ function Navigation() {
             </NavDropdown>
           </Nav>
 
-  {  /*
-  <MDBCol md="6">
-  <div className="input-group md-form form-sm form-1">
-    <div className="input-group-prepend">
-      <span className="input-group-text blue lighten-3" id="basic-text1">
-        <MDBIcon className="text-muted" icon="search" />
-      </span>
-    </div>
-    <input
-      className="form-control my-0 py-2"
-      type="text"
-      placeholder="Search for anything"
-      aria-label="Search"
-    />
-  </div>
-</MDBCol>
-*/}
-
 <form className="search-bar" onSubmit={handleSearch}>
 <div className="search-box">
       <MDBIcon className="search-icon ml-2" icon="search" />
@@ -90,8 +72,6 @@ function Navigation() {
       <button type="submit">Search</button>
      </div>
 </form>
-
-
 
 
   <Nav>
