@@ -65,6 +65,7 @@ function Navigation() {
             </NavDropdown>
           </Nav>
 
+
 <form className="search-bar" onSubmit={handleSearch}>
 <div className="search-box">
       <MDBIcon className="search-icon ml-2" icon="search" />
@@ -72,6 +73,8 @@ function Navigation() {
       <button type="submit">Search</button>
      </div>
 </form>
+
+
 
 
   <Nav>

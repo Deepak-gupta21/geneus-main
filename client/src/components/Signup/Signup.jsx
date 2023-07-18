@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css'
 import {
   MDBBtn,
@@ -16,12 +16,24 @@ import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
 import './Signup.css';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+
+const Signup=() => {
+const[name, setName]=useState("");
+const[email, setEmail]=useState("");
+const[password, setPassword]=useState("");
 
 
-function Signup() {
+
+const handleSubmit=async(e) =>{
+  e.preventDefault();
+  const {data}=await axios.post("http://localhost:8000/signup", {name, email, password});
+  console.log("Response from frontend", data);
+}
+
   return (
     <MDBContainer fluid className='box'>
-
+    <form onSubmit={handleSubmit}>
       <MDBRow className='d-flex justify-content-center align-items-center h-100'>
         <MDBCol col='12'>
 
@@ -31,19 +43,19 @@ function Signup() {
               <h6 className="fw-bold mb-4 text-center text-dark">Sign up and start learning</h6>
 
       
- <MDBInput wrapperClass='mb-4 w-100' label='Full name' id='formControlLg' type='text' size="lg"/>
- <MDBInput wrapperClass='mb-4 w-100' label='Email' id='formControlLg' type='email' size="lg"/>
- <MDBInput wrapperClass='mb-4 w-100' label='Password' id='formControlLg' type='password' size="lg"/>
+ <MDBInput wrapperClass='mb-4 w-100' onChange={(e) => setName(e.target.value)} name='name' label='Full name' id='name' type='text' size="lg"/>
+ <MDBInput wrapperClass='mb-4 w-100' onChange={(e) => setEmail(e.target.value)} name='email' label='Email' id='email' type='email' size="lg"/>
+ <MDBInput wrapperClass='mb-4 w-100' onChange={(e) => setPassword(e.target.value)} name='password' label='Password' id='pwd' type='password' size="lg"/>
 
               <div className="d-flex justify-content-between text-dark mb-2 fs-500 fw-lighter">
               <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Send me special offers, personalized recommendations, and learning tips' />
             </div>
 
 
-              <MDBBtn className="mb-4 w-120 fw-bold text-capitalize" size='lg' >
+              <MDBBtn className="mb-4 w-120 fw-bold text-capitalize" size='lg'>
                 Sign up
               </MDBBtn>
-
+              
               <hr className="my-4 text-muted" />
               <p className="text-center text-body">Already have an account? <Link as={Link} to='/login' className='log_in'> Log in</Link></p>
               
@@ -52,7 +64,7 @@ function Signup() {
 
         </MDBCol>
       </MDBRow>
-
+      </form>
     </MDBContainer>
   );
 }
