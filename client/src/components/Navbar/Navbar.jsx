@@ -19,13 +19,14 @@ function Navigation() {
     event.preventDefault();
 
     try {
-      const response = await fetch(`${searchTerm}`);
+      const response = await fetch(`#=${searchTerm}`);
       const data = await response.json();
       setShows(data.map(item => item.show));
     } catch (error) {
       setError(error);
     }
   };
+
   if (error) {
     return <div>Error: {error.message}</div>;
   }
@@ -49,7 +50,7 @@ function Navigation() {
             className="me-auto my-2 my-lg-0"
             style={{ maxHeight: '50px' }}
             navbarScroll
-          >
+          >  
             <NavDropdown title="Categories" id="navbarScrollingDropdown">
               <NavDropdown.Item href="#action3">App Development</NavDropdown.Item>
               <NavDropdown.Item href="#action4">
@@ -61,7 +62,6 @@ function Navigation() {
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
-
 <form className="search-bar" onSubmit={handleSearch}>
 <div className="search-box">
       <MDBIcon className="search-icon ml-2" icon="search" />
@@ -79,5 +79,4 @@ function Navigation() {
     </Navbar>
   );
 }
-
 export default Navigation;

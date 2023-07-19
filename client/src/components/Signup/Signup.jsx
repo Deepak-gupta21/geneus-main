@@ -44,6 +44,7 @@ catch(err){
             <MDBCardBody className='p-5 w-100 d-flex flex-column'>
 
               <h6 className="fw-bold mb-4 text-center text-dark">Sign up and start learning</h6>
+
  <MDBInput wrapperClass='mb-4 w-100' onChange={(e) => setName(e.target.value)} name='name' label='Full name' id='name' type='text' size="lg"/>
  <MDBInput wrapperClass='mb-4 w-100' onChange={(e) => setEmail(e.target.value)} name='email' label='Email' id='email' type='email' size="lg"/>
  <MDBInput wrapperClass='mb-4 w-100' onChange={(e) => setPassword(e.target.value)} name='password' label='Password' id='pwd' type='password' size="lg"/>
@@ -51,11 +52,9 @@ catch(err){
               <div className="d-flex justify-content-between text-dark mb-2 fs-500 fw-lighter">
               <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Send me special offers, personalized recommendations, and learning tips' />
             </div>
-
               <MDBBtn className="mb-4 w-120 fw-bold text-capitalize" size='lg' >
                 Sign up
               </MDBBtn>
-  
               <hr className="my-4 text-muted" />
               <p className="text-center text-body">Already have an account? <Link as={Link} to='/login' className='log_in'> Log in</Link></p>
             </MDBCardBody>
@@ -66,7 +65,6 @@ catch(err){
     </MDBContainer>
   );
 }
-
 export default Signup;
 
 
