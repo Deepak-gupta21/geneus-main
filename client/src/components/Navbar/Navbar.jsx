@@ -11,6 +11,7 @@ import { MDBIcon } from 'mdbreact';
 import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
 
+
 function Navigation() {
   const [shows, setShows] = useState([]);
   const [error, setError] = useState(null);
@@ -19,13 +20,14 @@ function Navigation() {
     event.preventDefault();
 
     try {
-      const response = await fetch(`${searchTerm}`);
+      const response = await fetch(`#=${searchTerm}`);
       const data = await response.json();
       setShows(data.map(item => item.show));
     } catch (error) {
       setError(error);
     }
   };
+
   if (error) {
     return <div>Error: {error.message}</div>;
   }
@@ -50,6 +52,7 @@ function Navigation() {
             style={{ maxHeight: '50px' }}
             navbarScroll
           >
+            
             <NavDropdown title="Categories" id="navbarScrollingDropdown">
               <NavDropdown.Item href="#action3">App Development</NavDropdown.Item>
               <NavDropdown.Item href="#action4">
@@ -62,6 +65,7 @@ function Navigation() {
             </NavDropdown>
           </Nav>
 
+
 <form className="search-bar" onSubmit={handleSearch}>
 <div className="search-box">
       <MDBIcon className="search-icon ml-2" icon="search" />
@@ -69,11 +73,16 @@ function Navigation() {
       <button type="submit">Search</button>
      </div>
 </form>
+
+
+
+
   <Nav>
           <Nav.Link as={Link} to='/login' className='login'><h4 className='linkText1'>Log in</h4></Nav.Link>
           <Nav.Link as={Link} to='/signup' className='signup'><h4 className='linkText2'>Sign up</h4></Nav.Link>
           <Nav.Link href="#action3" className='cart'><h4 className='linkText3'><MDBIcon icon="shopping-cart" size="x"/></h4></Nav.Link>
   </Nav>
+
         </Navbar.Collapse>
       </Container>
     </Navbar>
