@@ -52,11 +52,9 @@ catch(err){
               <div className="d-flex justify-content-between text-dark mb-2 fs-500 fw-lighter">
               <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Send me special offers, personalized recommendations, and learning tips' />
             </div>
-
               <MDBBtn className="mb-4 w-120 fw-bold text-capitalize" size='lg' >
                 Sign up
               </MDBBtn>
-              
               <hr className="my-4 text-muted" />
               <p className="text-center text-body">Already have an account? <Link as={Link} to='/login' className='log_in'> Log in</Link></p>
             </MDBCardBody>
@@ -67,7 +65,6 @@ catch(err){
     </MDBContainer>
   );
 }
-
 export default Signup;
 
 
