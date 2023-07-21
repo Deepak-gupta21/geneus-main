@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
 
 function Navigation() {
-  const [shows, setShows] = useState([]);
+  const [setShows] = useState([]);
   const [error, setError] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
   const handleSearch = async (event) => {
@@ -50,7 +50,7 @@ function Navigation() {
             className="me-auto my-2 my-lg-0"
             style={{ maxHeight: '50px' }}
             navbarScroll
-          >  
+          >
             <NavDropdown title="Categories" id="navbarScrollingDropdown">
               <NavDropdown.Item href="#action3">App Development</NavDropdown.Item>
               <NavDropdown.Item href="#action4">
@@ -62,6 +62,7 @@ function Navigation() {
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
+
 <form className="search-bar" onSubmit={handleSearch}>
 <div className="search-box">
       <MDBIcon className="search-icon ml-2" icon="search" />
@@ -76,7 +77,7 @@ function Navigation() {
   </Nav>
         </Navbar.Collapse>
       </Container>
-    </Navbar>
+    </Navbar> 
   );
 }
 export default Navigation;
