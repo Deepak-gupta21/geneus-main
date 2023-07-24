@@ -2,6 +2,7 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import User from "../models/user.js";
 import Token from '../models/token.js';
+import Query from "../models/query.js";
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -30,7 +31,6 @@ const hashedPassword = await bcrypt.hash(req.body.password, 10);
         return res.status(400).send("Error occurred! Please try again later")
     }
 }
-
 export const login = async (req, res) => {
     const {email, password}=req.body;
     const user=await User.findOne({email}).exec();
@@ -50,5 +50,41 @@ export const login = async (req, res) => {
         }
     } catch (error) {
         return res.status(500).send('Error while login the user')
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+export const contact = async (req, res)=>{
+    try{
+        const {name, email, contact, message} = req.body;
+        if(!name) return res.status(400).send("Name is required");
+        if(!email) return res.status(400).send("Email is required");
+        if(!contact) return res.status(400).send("Contact is required");
+        if(!contact) return res.status(400).send("Write the message you want to share");
+
+        const query= new Query({
+            name,
+            email,
+            contact,
+            message,
+        });
+        await query.save();
+        return res.json({ok:true});
+        }
+    catch(err){
+        console.log(err);
+        return res.status(400).send("Error occurred! Please try again later")
     }
 }

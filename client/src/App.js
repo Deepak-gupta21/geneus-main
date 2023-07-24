@@ -8,6 +8,18 @@ import Signup from './components/Signup/Signup';
 import Contact from './components/Contact/Contact';
 import About from './components/About/About';
 
+// const App = () => {
+//   return (
+//     <Router>
+//     <ToastContainer theme="colored" position="top-center" />
+//       <Routes>
+//         <Route exact path="/" element={<Navbar />} /> 
+//         <Route path="/login" element={<Login />} /> 
+//         <Route path="/signup" element={<Signup />} />   
+//       </Routes>
+//     </Router>
+//   );
+// };
 const App = () => {
   return (
     <Router>
