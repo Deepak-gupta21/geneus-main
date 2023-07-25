@@ -49,22 +49,9 @@ export const login = async (req, res) => {
             return res.status(400).send('Password does not match')
         }
     } catch (error) {
-        return res.status(500).send('Error while login the user')
+        return res.status(500).send('Authentication Failed!')
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 export const contact = async (req, res)=>{
     try{
@@ -72,7 +59,7 @@ export const contact = async (req, res)=>{
         if(!name) return res.status(400).send("Name is required");
         if(!email) return res.status(400).send("Email is required");
         if(!contact) return res.status(400).send("Contact is required");
-        if(!contact) return res.status(400).send("Write the message you want to share");
+        if(!message) return res.status(400).send("Please mention your query");
 
         const query= new Query({
             name,
