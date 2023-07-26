@@ -6,7 +6,7 @@ const About = () => {
     <ul>
   <li><a href="/">Home</a></li>
   <li><a href="#courses">Courses</a></li>
-  <li><a href="#blogs">Blogs</a></li>
+  <li><a href="/blog">Blogs</a></li>
   <li><a href="/contact">Contact Us</a></li>
 </ul>
     </div>
