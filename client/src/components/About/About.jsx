@@ -1,8 +1,9 @@
 import React from 'react'
 import './About.css';
+
 const About = () => {
   return (
-    <div className='pages'>
+    <div className='about_pages'>
     <ul>
   <li><a href="/">Home</a></li>
   <li><a href="#courses">Courses</a></li>

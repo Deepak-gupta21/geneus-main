@@ -8,6 +8,7 @@ import Signup from './components/Signup/Signup';
 import Contact from './components/Contact/Contact';
 import About from './components/About/About';
 import Blog from './components/Blog/Blog';
+import Footer from './components/Footer/Footer';
 
 const App = () => {
   return (
@@ -19,10 +20,11 @@ const App = () => {
                 <Route path="/signup" element={<Signup />} />    
             </Routes>
             <Routes>
-            <Route path="/about" element={<About />} />
+           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/blog" element={<Blog />} />
+  <Route path="/blog" element={<Blog />} /> 
         </Routes>
+        <Footer />
     </Router>
   );
 };
