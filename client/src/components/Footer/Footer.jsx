@@ -42,7 +42,7 @@ const Footer = () => {
           </MDBCol>
 
           <MDBCol lg='3' md='6' className='mb-1 mb-md-0 mt-2'>
-            <h6 className='mb-0 fs-6'>&copy;2023 Geneus Soln.</h6> 
+            <h6 className='mb-0 fs-6'>&copy;2023 Geneus Solutions</h6> 
           </MDBCol>
 
         </MDBRow>
