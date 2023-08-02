@@ -44,6 +44,7 @@ const Course = () => {
   const beginnerCourses = filteredCourses.filter((course) => course.level === 'beginner');
   const intermediateCourses = filteredCourses.filter((course) => course.level === 'intermediate');
   const advancedCourses = filteredCourses.filter((course) => course.level === 'advanced');
+
   return (
     <div>
     <div class="dropdown">
@@ -62,8 +63,8 @@ const Course = () => {
             </MDBDropdownItem>
           </MDBDropdownMenu>
         </MDBDropdown>
-</div>
 
+</div>
       <MDBRow className="row-cols-1 row-cols-md-4 g-4 mx-5 mb-4 mt-1">
         {beginnerCourses.map((course) => (
           <MDBCol key={course.id}>
@@ -75,6 +76,10 @@ const Course = () => {
               />
               <MDBCardBody>
                 <MDBCardTitle>Learn Java from Scratch</MDBCardTitle>
+                <h6 className="mb-3">
+                <s>&#8377;5000</s>
+                <strong className="ms-2 text-danger">&#8377;1000</strong>
+              </h6>
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
@@ -89,6 +94,10 @@ const Course = () => {
               />
               <MDBCardBody>
                 <MDBCardTitle>Learn HTML/CSS/Javascript</MDBCardTitle>
+                <h6 className="mb-3">
+                <s>&#8377;5000</s>
+                <strong className="ms-2 text-danger">&#8377;1000</strong>
+              </h6>
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
@@ -104,6 +113,10 @@ const Course = () => {
               />
               <MDBCardBody>
                 <MDBCardTitle>Master ReactJS</MDBCardTitle>
+                <h6 className="mb-3">
+                <s>&#8377;5000</s>
+                <strong className="ms-2 text-danger">&#8377;1000</strong>
+              </h6>
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
@@ -118,6 +131,10 @@ const Course = () => {
               />
               <MDBCardBody>
                 <MDBCardTitle>Master Angular</MDBCardTitle>
+                <h6 className="mb-3">
+                <s>&#8377;5000</s>
+                <strong className="ms-2 text-danger">&#8377;1000</strong>
+              </h6>
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
@@ -133,6 +150,10 @@ const Course = () => {
               />
               <MDBCardBody>
                 <MDBCardTitle>Master Springboot and RESTFUL Web Services</MDBCardTitle>
+                <h6 className="mb-3">
+                <s>&#8377;5000</s>
+                <strong className="ms-2 text-danger">&#8377;1000</strong>
+              </h6>
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
@@ -148,6 +169,10 @@ const Course = () => {
               />
               <MDBCardBody>
                 <MDBCardTitle>How to become Frontend Developer</MDBCardTitle>
+                <h6 className="mb-3">
+                <s>&#8377;5000</s>
+                <strong className="ms-2 text-danger">&#8377;1000</strong>
+              </h6>
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
@@ -163,11 +188,15 @@ const Course = () => {
               />
               <MDBCardBody>
                 <MDBCardTitle>How to become Backend Developer</MDBCardTitle>
+                <h6 className="mb-3">
+                <s>&#8377;5000</s>
+                <strong className="ms-2 text-danger">&#8377;1000</strong>
+              </h6>
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
         ))}
-      
+
         {advancedCourses.map((course) => (
           <MDBCol key={course.id}>
             <MDBCard className="h-100">
@@ -178,6 +207,10 @@ const Course = () => {
               />
               <MDBCardBody>
                 <MDBCardTitle>How to become Full Stack Developer</MDBCardTitle>
+                <h6 className="mb-3">
+                <s>&#8377;5000</s>
+                <strong className="ms-2 text-danger">&#8377;1000</strong>
+              </h6>
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
@@ -192,6 +225,10 @@ const Course = () => {
               />
               <MDBCardBody>
                 <MDBCardTitle>Become Web Developer in 3 months</MDBCardTitle>
+                <h6 className="mb-3">
+                <s>&#8377;5000</s>
+                <strong className="ms-2 text-danger">&#8377;1000</strong>
+              </h6>
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
