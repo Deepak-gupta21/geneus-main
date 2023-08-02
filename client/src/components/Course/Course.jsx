@@ -44,8 +44,6 @@ const Course = () => {
   const beginnerCourses = filteredCourses.filter((course) => course.level === 'beginner');
   const intermediateCourses = filteredCourses.filter((course) => course.level === 'intermediate');
   const advancedCourses = filteredCourses.filter((course) => course.level === 'advanced');
-
-
   return (
     <div>
     <div class="dropdown">
@@ -65,7 +63,6 @@ const Course = () => {
           </MDBDropdownMenu>
         </MDBDropdown>
 </div>
-
 
       <MDBRow className="row-cols-1 row-cols-md-4 g-4 mx-5 mb-4 mt-1">
         {beginnerCourses.map((course) => (
@@ -96,8 +93,6 @@ const Course = () => {
             </MDBCard>
           </MDBCol>
         ))}
-
-      
       
         {intermediateCourses.map((course) => (
           <MDBCol key={course.id}>
@@ -127,7 +122,6 @@ const Course = () => {
             </MDBCard>
           </MDBCol>
         ))}
-      
 
         {intermediateCourses.map((course) => (
           <MDBCol key={course.id}>
@@ -143,7 +137,6 @@ const Course = () => {
             </MDBCard>
           </MDBCol>
         ))}
-      
 
         {intermediateCourses.map((course) => (
           <MDBCol key={course.id}>
@@ -159,7 +152,6 @@ const Course = () => {
             </MDBCard>
           </MDBCol>
         ))}
-      
 
         {intermediateCourses.map((course) => (
           <MDBCol key={course.id}>
@@ -175,11 +167,6 @@ const Course = () => {
             </MDBCard>
           </MDBCol>
         ))}
-      
-
-      
-
-      
       
         {advancedCourses.map((course) => (
           <MDBCol key={course.id}>
@@ -210,9 +197,7 @@ const Course = () => {
           </MDBCol>
         ))}
         </MDBRow>
-
     </div>
   )
 }
-
 export default Course;

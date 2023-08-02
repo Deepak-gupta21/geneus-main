@@ -11,18 +11,6 @@ import Blog from './components/Blog/Blog';
 import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
 
-// const App = () => {
-//   return (
-//     <Router>
-//     <ToastContainer theme="colored" position="top-center" />
-//       <Routes>
-//         <Route exact path="/" element={<Navbar />} /> 
-//         <Route path="/login" element={<Login />} /> 
-//         <Route path="/signup" element={<Signup />} />   
-//       </Routes>
-//     </Router>
-//   );
-// };
 const App = () => {
   return (
     <Router>
