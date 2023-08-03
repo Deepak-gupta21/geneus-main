@@ -15,6 +15,7 @@ import {
   MDBRow,
   MDBCol,
   MDBBtn,
+  MDBIcon,
 } from 'mdb-react-ui-kit';
 
 const Course = () => {
@@ -40,7 +41,6 @@ const Course = () => {
     }
     return true; 
   });
-
   const beginnerCourses = filteredCourses.filter((course) => course.level === 'beginner');
   const intermediateCourses = filteredCourses.filter((course) => course.level === 'intermediate');
   const advancedCourses = filteredCourses.filter((course) => course.level === 'advanced');
@@ -63,8 +63,8 @@ const Course = () => {
             </MDBDropdownItem>
           </MDBDropdownMenu>
         </MDBDropdown>
-
 </div>
+
       <MDBRow className="row-cols-1 row-cols-md-4 g-4 mx-5 mb-4 mt-1">
         {beginnerCourses.map((course) => (
           <MDBCol key={course.id}>
@@ -76,6 +76,15 @@ const Course = () => {
               />
               <MDBCardBody>
                 <MDBCardTitle>Learn Java from Scratch</MDBCardTitle>
+                <div className="d-flex flex-row">
+                    <div className="text-danger mb-1 me-2">
+                      <MDBIcon fas icon="star" />
+                      <MDBIcon fas icon="star" />
+                      <MDBIcon fas icon="star" />
+                      <MDBIcon fas icon="star" />
+                      <MDBIcon far icon="star" />
+                    </div>
+                    </div>
                 <h6 className="mb-3">
                 <s>&#8377;5000</s>
                 <strong className="ms-2 text-danger">&#8377;1000</strong>
@@ -94,6 +103,15 @@ const Course = () => {
               />
               <MDBCardBody>
                 <MDBCardTitle>Learn HTML/CSS/Javascript</MDBCardTitle>
+                <div className="d-flex flex-row">
+                    <div className="text-danger mb-1 me-2">
+                      <MDBIcon fas icon="star" />
+                      <MDBIcon fas icon="star" />
+                      <MDBIcon fas icon="star" />
+                      <MDBIcon fas icon="star" />
+                      <MDBIcon far icon="star" />
+                    </div>
+                    </div>
                 <h6 className="mb-3">
                 <s>&#8377;5000</s>
                 <strong className="ms-2 text-danger">&#8377;1000</strong>
@@ -113,6 +131,15 @@ const Course = () => {
               />
               <MDBCardBody>
                 <MDBCardTitle>Master ReactJS</MDBCardTitle>
+                <div className="d-flex flex-row">
+                    <div className="text-danger mb-1 me-2">
+                      <MDBIcon fas icon="star" />
+                      <MDBIcon fas icon="star" />
+                      <MDBIcon fas icon="star" />
+                      <MDBIcon fas icon="star" />
+                      <MDBIcon far icon="star" />
+                    </div>
+                    </div>
                 <h6 className="mb-3">
                 <s>&#8377;5000</s>
                 <strong className="ms-2 text-danger">&#8377;1000</strong>
@@ -131,6 +158,15 @@ const Course = () => {
               />
               <MDBCardBody>
                 <MDBCardTitle>Master Angular</MDBCardTitle>
+                <div className="d-flex flex-row">
+                    <div className="text-danger mb-1 me-2">
+                      <MDBIcon fas icon="star" />
+                      <MDBIcon fas icon="star" />
+                      <MDBIcon fas icon="star" />
+                      <MDBIcon fas icon="star" />
+                      <MDBIcon far icon="star" />
+                    </div>
+                    </div>
                 <h6 className="mb-3">
                 <s>&#8377;5000</s>
                 <strong className="ms-2 text-danger">&#8377;1000</strong>
@@ -150,6 +186,15 @@ const Course = () => {
               />
               <MDBCardBody>
                 <MDBCardTitle>Master Springboot and RESTFUL Web Services</MDBCardTitle>
+                <div className="d-flex flex-row">
+                    <div className="text-danger mb-1 me-2">
+                      <MDBIcon fas icon="star" />
+                      <MDBIcon fas icon="star" />
+                      <MDBIcon fas icon="star" />
+                      <MDBIcon fas icon="star" />
+                      <MDBIcon far icon="star" />
+                    </div>
+                    </div>
                 <h6 className="mb-3">
                 <s>&#8377;5000</s>
                 <strong className="ms-2 text-danger">&#8377;1000</strong>
@@ -169,6 +214,15 @@ const Course = () => {
               />
               <MDBCardBody>
                 <MDBCardTitle>How to become Frontend Developer</MDBCardTitle>
+                <div className="d-flex flex-row">
+                    <div className="text-danger mb-1 me-2">
+                      <MDBIcon fas icon="star" />
+                      <MDBIcon fas icon="star" />
+                      <MDBIcon fas icon="star" />
+                      <MDBIcon fas icon="star" />
+                      <MDBIcon far icon="star" />
+                    </div>
+                    </div>
                 <h6 className="mb-3">
                 <s>&#8377;5000</s>
                 <strong className="ms-2 text-danger">&#8377;1000</strong>
@@ -188,6 +242,15 @@ const Course = () => {
               />
               <MDBCardBody>
                 <MDBCardTitle>How to become Backend Developer</MDBCardTitle>
+                <div className="d-flex flex-row">
+                    <div className="text-danger mb-1 me-2">
+                      <MDBIcon fas icon="star" />
+                      <MDBIcon fas icon="star" />
+                      <MDBIcon fas icon="star" />
+                      <MDBIcon fas icon="star" />
+                      <MDBIcon far icon="star" />
+                    </div>
+                    </div>
                 <h6 className="mb-3">
                 <s>&#8377;5000</s>
                 <strong className="ms-2 text-danger">&#8377;1000</strong>
@@ -207,6 +270,15 @@ const Course = () => {
               />
               <MDBCardBody>
                 <MDBCardTitle>How to become Full Stack Developer</MDBCardTitle>
+                <div className="d-flex flex-row">
+                    <div className="text-danger mb-1 me-2">
+                      <MDBIcon fas icon="star" />
+                      <MDBIcon fas icon="star" />
+                      <MDBIcon fas icon="star" />
+                      <MDBIcon fas icon="star" />
+                      <MDBIcon far icon="star" />
+                    </div>
+                    </div>
                 <h6 className="mb-3">
                 <s>&#8377;5000</s>
                 <strong className="ms-2 text-danger">&#8377;1000</strong>
@@ -225,6 +297,15 @@ const Course = () => {
               />
               <MDBCardBody>
                 <MDBCardTitle>Become Web Developer in 3 months</MDBCardTitle>
+                <div className="d-flex flex-row">
+                    <div className="text-danger mb-1 me-2">
+                      <MDBIcon fas icon="star" />
+                      <MDBIcon fas icon="star" />
+                      <MDBIcon fas icon="star" />
+                      <MDBIcon fas icon="star" />
+                      <MDBIcon far icon="star" />
+                    </div>
+                    </div>
                 <h6 className="mb-3">
                 <s>&#8377;5000</s>
                 <strong className="ms-2 text-danger">&#8377;1000</strong>
