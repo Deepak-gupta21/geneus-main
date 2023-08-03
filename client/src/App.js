@@ -5,9 +5,10 @@ import 'react-toastify/dist/ReactToastify.css';
 import Navbar from './components/Navbar/Navbar';
 import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
-import Contact from './components/Contact/Contact';
 import About from './components/About/About';
+import Course from './components/Course/Course';
 import Blog from './components/Blog/Blog';
+import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
 
 const App = () => {
@@ -21,8 +22,9 @@ const App = () => {
             </Routes>
             <Routes>
            <Route path="/about" element={<About />} />
+           <Route path="/courses" element={<Course />} />
+           <Route path="/blog" element={<Blog />} /> 
           <Route path="/contact" element={<Contact />} />
-  <Route path="/blog" element={<Blog />} /> 
         </Routes>
         <Footer />
     </Router>
