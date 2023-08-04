@@ -89,6 +89,9 @@ const Course = () => {
                 <s>&#8377;5000</s>
                 <strong className="ms-2 text-danger">&#8377;1000</strong>
               </h6>
+              <div className="text-center">
+            <MDBBtn href='#'>Buy Now</MDBBtn>
+            </div>
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
@@ -116,6 +119,9 @@ const Course = () => {
                 <s>&#8377;5000</s>
                 <strong className="ms-2 text-danger">&#8377;1000</strong>
               </h6>
+              <div className="text-center">
+            <MDBBtn href='#'>Buy Now</MDBBtn>
+            </div>
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
@@ -144,6 +150,9 @@ const Course = () => {
                 <s>&#8377;5000</s>
                 <strong className="ms-2 text-danger">&#8377;1000</strong>
               </h6>
+              <div className="text-center">
+            <MDBBtn href='#'>Buy Now</MDBBtn>
+            </div>
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
@@ -171,6 +180,9 @@ const Course = () => {
                 <s>&#8377;5000</s>
                 <strong className="ms-2 text-danger">&#8377;1000</strong>
               </h6>
+              <div className="text-center">
+            <MDBBtn href='#'>Buy Now</MDBBtn>
+            </div>
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
@@ -199,6 +211,9 @@ const Course = () => {
                 <s>&#8377;5000</s>
                 <strong className="ms-2 text-danger">&#8377;1000</strong>
               </h6>
+              <div className="text-center">
+            <MDBBtn href='#'>Buy Now</MDBBtn>
+            </div>
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
@@ -227,6 +242,9 @@ const Course = () => {
                 <s>&#8377;5000</s>
                 <strong className="ms-2 text-danger">&#8377;1000</strong>
               </h6>
+              <div className="text-center">
+            <MDBBtn href='#'>Buy Now</MDBBtn>
+            </div>
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
@@ -255,6 +273,9 @@ const Course = () => {
                 <s>&#8377;5000</s>
                 <strong className="ms-2 text-danger">&#8377;1000</strong>
               </h6>
+              <div className="text-center">
+            <MDBBtn href='#'>Buy Now</MDBBtn>
+            </div>
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
@@ -283,6 +304,9 @@ const Course = () => {
                 <s>&#8377;5000</s>
                 <strong className="ms-2 text-danger">&#8377;1000</strong>
               </h6>
+              <div className="text-center">
+            <MDBBtn href='#'>Buy Now</MDBBtn>
+            </div>
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
@@ -310,6 +334,9 @@ const Course = () => {
                 <s>&#8377;5000</s>
                 <strong className="ms-2 text-danger">&#8377;1000</strong>
               </h6>
+              <div className="text-center">
+            <MDBBtn href='#'>Buy Now</MDBBtn>
+            </div>
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
