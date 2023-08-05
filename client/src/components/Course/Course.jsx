@@ -85,7 +85,7 @@ const Course = () => {
                       <MDBIcon far icon="star" />
                     </div>
                     </div>
-                <h6 className="mb-3">
+                <h6 className="mb-1">
                 <s>&#8377;5000</s>
                 <strong className="ms-2 text-danger">&#8377;1000</strong>
               </h6>
@@ -115,7 +115,7 @@ const Course = () => {
                       <MDBIcon far icon="star" />
                     </div>
                     </div>
-                <h6 className="mb-3">
+                <h6 className="mb-1">
                 <s>&#8377;5000</s>
                 <strong className="ms-2 text-danger">&#8377;1000</strong>
               </h6>
@@ -146,7 +146,7 @@ const Course = () => {
                       <MDBIcon far icon="star" />
                     </div>
                     </div>
-                <h6 className="mb-3">
+                <h6 className="mb-1">
                 <s>&#8377;5000</s>
                 <strong className="ms-2 text-danger">&#8377;1000</strong>
               </h6>
@@ -176,7 +176,7 @@ const Course = () => {
                       <MDBIcon far icon="star" />
                     </div>
                     </div>
-                <h6 className="mb-3">
+                <h6 className="mb-1">
                 <s>&#8377;5000</s>
                 <strong className="ms-2 text-danger">&#8377;1000</strong>
               </h6>
@@ -207,7 +207,7 @@ const Course = () => {
                       <MDBIcon far icon="star" />
                     </div>
                     </div>
-                <h6 className="mb-3">
+                <h6 className="mb-1">
                 <s>&#8377;5000</s>
                 <strong className="ms-2 text-danger">&#8377;1000</strong>
               </h6>
@@ -238,7 +238,7 @@ const Course = () => {
                       <MDBIcon far icon="star" />
                     </div>
                     </div>
-                <h6 className="mb-3">
+                <h6 className="mb-1">
                 <s>&#8377;5000</s>
                 <strong className="ms-2 text-danger">&#8377;1000</strong>
               </h6>
@@ -269,7 +269,7 @@ const Course = () => {
                       <MDBIcon far icon="star" />
                     </div>
                     </div>
-                <h6 className="mb-3">
+                <h6 className="mb-1">
                 <s>&#8377;5000</s>
                 <strong className="ms-2 text-danger">&#8377;1000</strong>
               </h6>
@@ -300,7 +300,7 @@ const Course = () => {
                       <MDBIcon far icon="star" />
                     </div>
                     </div>
-                <h6 className="mb-3">
+                <h6 className="mb-1">
                 <s>&#8377;5000</s>
                 <strong className="ms-2 text-danger">&#8377;1000</strong>
               </h6>
@@ -330,7 +330,7 @@ const Course = () => {
                       <MDBIcon far icon="star" />
                     </div>
                     </div>
-                <h6 className="mb-3">
+                <h6 className="mb-1">
                 <s>&#8377;5000</s>
                 <strong className="ms-2 text-danger">&#8377;1000</strong>
               </h6>
