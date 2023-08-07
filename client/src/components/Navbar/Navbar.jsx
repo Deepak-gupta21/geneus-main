@@ -15,6 +15,18 @@ function Navigation() {
   const [setShows] = useState([]);
   const [error, setError] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
+  
+  const [islogged,setIslogged]=useState(false);
+  const [name, setName]=useState('');
+
+  // To handle login and logout toggle, not yet used
+  const handleLogin = (name) => {
+    if(name){
+      setIslogged(!islogged);
+    }
+    setName(name);
+  };
+
   const handleSearch = async (event) => {
     event.preventDefault();
 
@@ -70,11 +82,18 @@ function Navigation() {
       <button type="submit">Search</button>
      </div>
 </form>
-  <Nav>
+
+          {  !islogged? <Nav>
           <Nav.Link as={Link} to='/login' className='login'><h4 className='linkText1'>Log in</h4></Nav.Link>
           <Nav.Link as={Link} to='/signup' className='signup'><h4 className='linkText2'>Sign up</h4></Nav.Link>
           <Nav.Link href="#action3" className='cart'><h4 className='linkText3'><MDBIcon icon="shopping-cart" size="x"/></h4></Nav.Link>
-  </Nav>
+          </Nav>:
+          <Nav>
+           <Navbar.Text className='linkText1'><b>Hello</b></Navbar.Text> 
+          <Nav.Link as={Link} to='#logout' className='logout'><h4 className='linkText1'>Logout</h4></Nav.Link>
+          <Nav.Link href="#action3" className='cart'><h4 className='linkText3'><MDBIcon icon="shopping-cart" size="x"/></h4></Nav.Link>
+          </Nav> }
+
         </Navbar.Collapse>
       </Container>
     </Navbar> 
