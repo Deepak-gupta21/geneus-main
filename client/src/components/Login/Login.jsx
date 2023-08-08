@@ -21,7 +21,7 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
 
-const Login=() => {
+const Login=({handleLogin}) => {
   const[email, setEmail]=useState("");
   const[password, setPassword]=useState("");
   const navigate = useNavigate();
@@ -32,6 +32,7 @@ const Login=() => {
     const {data}=await axios.post("http://localhost:8000/login", {email, password});
     toast.success("Login successful !");
     navigate("/about");
+    handleLogin();
   }
   catch(err){
     toast.error(err.response.data);

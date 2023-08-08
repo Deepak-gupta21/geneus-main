@@ -11,7 +11,7 @@ import { MDBIcon } from 'mdbreact';
 import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
 
-function Navigation() {
+function Navigation({islogged, handleLogout}) {
   const [setShows] = useState([]);
   const [error, setError] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
@@ -70,11 +70,15 @@ function Navigation() {
       <button type="submit">Search</button>
      </div>
 </form>
-  <Nav>
+  {!islogged? <Nav>
           <Nav.Link as={Link} to='/login' className='login'><h4 className='linkText1'>Log in</h4></Nav.Link>
           <Nav.Link as={Link} to='/signup' className='signup'><h4 className='linkText2'>Sign up</h4></Nav.Link>
           <Nav.Link href="#action3" className='cart'><h4 className='linkText3'><MDBIcon icon="shopping-cart" size="x"/></h4></Nav.Link>
-  </Nav>
+  </Nav> :
+          <Nav>
+          <Nav.Link as={Link} to='/login' className='login'><h4 className='linkText1' onClick={handleLogout}>Log out</h4></Nav.Link>
+          <Nav.Link href="#action3" className='cart'><h4 className='linkText3'><MDBIcon icon="shopping-cart" size="x"/></h4></Nav.Link>
+          </Nav> }
         </Navbar.Collapse>
       </Container>
     </Navbar> 
