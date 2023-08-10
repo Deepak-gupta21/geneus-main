@@ -52,7 +52,6 @@ export const login = async (req, res) => {
         return res.status(500).send('Authentication Failed!')
     }
 }
-
 export const contact = async (req, res)=>{
     try{
         const {name, email, contact, message} = req.body;

@@ -82,7 +82,6 @@ function Navigation() {
       <button type="submit">Search</button>
      </div>
 </form>
-
           {  !islogged? <Nav>
           <Nav.Link as={Link} to='/login' className='login'><h4 className='linkText1'>Log in</h4></Nav.Link>
           <Nav.Link as={Link} to='/signup' className='signup'><h4 className='linkText2'>Sign up</h4></Nav.Link>
@@ -99,4 +98,5 @@ function Navigation() {
     </Navbar> 
   );
 }
+
 export default Navigation;
