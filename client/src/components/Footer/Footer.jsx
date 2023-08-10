@@ -8,7 +8,7 @@ import {
 
 const Footer = () => {
   return (
-    <MDBFooter className='bg-dark bg-gradient text-center text-white text-lg-left'>
+    <MDBFooter className='bg-dark bg-gradient text-center text-white text-lg-left mb-0'>
       <MDBContainer className='p-2'>
         <MDBRow>
           <MDBCol lg='3' md='6' className='mb-1 mb-md-0'>

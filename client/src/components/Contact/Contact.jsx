@@ -71,7 +71,7 @@ const Contact = () => {
             <div class="phone text-box">
             <p class="icon"><MDBIcon icon="phone" size="2x" /> </p>
               <p class="contact-text">
-                +91 81470 20880
+                +91 12345 67890
               </p>
             </div>
             </div>

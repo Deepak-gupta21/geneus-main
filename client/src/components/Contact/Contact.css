@@ -7,7 +7,6 @@
   justify-content: flex-start;
   margin-top: 0px;
   margin-right: auto;
-  margin-bottom: 20px;
   margin-left: auto;
   background-color: rgb(52, 52, 52);
 }
@@ -121,6 +120,7 @@
   border-bottom-style: none;
   border-left-style: none;
   cursor: pointer;
+  margin-top: 20px;
 }
 .contact_us_green .submit-btn:hover{
   background-color: #0d47a1;
