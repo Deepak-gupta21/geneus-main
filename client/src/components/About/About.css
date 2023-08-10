@@ -1,21 +1,21 @@
-.pages{
+.about_pages{
 height: 8vh;
-background: rgb(52, 52, 52);;
+background: rgb(52, 52, 52);
 }
-ul {
+.about_pages ul {
   list-style-type: none;
   margin-left: 20vw;
   padding-top: 12px;
 }
-li {
+.about_pages li {
   display: inline;
   margin-right: 12vw;
   font-size: 16px;
   font-weight: bold;
 }
-li a{
+.about_pages li a{
 color: white;
 }
-li a:hover{
+.about_pages li a:hover{
   color: #4285F4;
 }

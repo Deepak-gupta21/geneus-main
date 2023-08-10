@@ -1,5 +1,6 @@
 import React from 'react'
 import './Blog.css';
+import 'mdb-react-ui-kit/dist/css/mdb.min.css'
 import Banner from '../../assets/blog_banner.jpg';
 import blog_1 from '../../assets/blog_1.png';
 import blog_2 from '../../assets/blog_2.jpg';
