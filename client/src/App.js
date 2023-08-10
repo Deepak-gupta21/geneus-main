@@ -23,19 +23,17 @@ const App = () => {
   return (
     <Router>
       <ToastContainer theme="colored" position="top-center" />
-      {/* Pass the loggedIn, username, and onLogout props to the Navbar component */}
       <Navbar loggedIn={loggedIn} username={username} />
       <Routes>
         <Route path="/login" element={<Login onLogin={handleLogin} />} />
         <Route path="/signup" element={<Signup />} />
         <Route
           path="/about"
-          element={<About loggedIn={loggedIn} username={username} />} // Pass loggedIn and username to the About component
+          element={<About loggedIn={loggedIn} username={username} />} 
         />
         <Route path="/courses" element={<Course />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/contact" element={<Contact />} />
-        {/* Add other routes as needed */}
       </Routes>
       <Footer />
     </Router>
