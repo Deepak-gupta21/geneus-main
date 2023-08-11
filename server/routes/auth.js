@@ -7,4 +7,6 @@ router.post("/signup",signup);
 router.post("/login",login);
 router.post("/contact",contact);
 
-module.exports = router;
+// module.exports = router;
+export default router;
+
