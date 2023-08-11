@@ -1,10 +1,8 @@
-// routes/courseRoutes.js
 import express from 'express';
 import Course from '../models/course';
 
 const router = express.Router();
 
-// Route to fetch all courses
 router.get('/courses', async (req, res) => {
   try {
     const courses = await Course.find();

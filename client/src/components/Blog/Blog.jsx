@@ -76,31 +76,8 @@ const Blog = () => {
       </MDBCol>
     </MDBRow>
   </MDBCard>
+  </div>
   
-  { /*  <div class="cards">
-   <MDBCard style={{ maxWidth: '1000px' }}>
-      <MDBRow className='g-0'>
-        <MDBCol md='7'>
-          <MDBCardBody>
-            <MDBCardTitle className="text-center mt-2 text-dark fs-4 fw-bold">Essential skills for a full stack developer.</MDBCardTitle>
-            <MDBCardText className='ml-5 my-2'><MDBIcon fas icon="calendar" />
-              <small className='text-muted ml-2'>09 August, 2023</small>
-            </MDBCardText>
-            <MDBCardText className="text-center text-dark fs-6 fw-normal">
-            For full stack development, you need to understand Hosting systems, Application stack and Web applications.
-            A full stack developer whose skill lies in the front-end, mastery of CSS, HTML, and JavaScript is fundamental to write consistent and maintainable code that translates into a hassle-free user experience. For back-end developers, knowledge of server-side languages, like Ruby, Java, and Python is essential.
-            Full stack developers are expected to be able to create, query and manipulate databases with ease. There are several to choose from, ranging from SQLite to MongoDB to Oracle.
-            The knowledge of frameworks, specific PHP ones, like Zend and Symfony or Django for Python, or Ruby on Rails for Ruby; version control software like SVN or GIT; and Linux. The back-end developer also needs to learn about caching and key-value stores, queuing systems, search engines, and other tools like Carrierwave or Refile.            </MDBCardText>
-          </MDBCardBody>
-        </MDBCol>
-        <MDBCol md='5'>
-          <MDBCardImage src={blog_3} alt='...' id="img1" fluid className='my-2 pr-2'/>
-        </MDBCol>
-      </MDBRow>
-  </MDBCard>   */}
-
-</div>
-    </div>
     <div class="cards">
    <MDBCard style={{ maxWidth: '1000px' }}>
       <MDBRow className='g-0'>
@@ -121,9 +98,11 @@ const Blog = () => {
           <MDBCardImage src={blog_3} alt='...' id="img1" fluid className='my-2 pr-2'/>
         </MDBCol>
       </MDBRow>
-    </MDBCard>
+  </MDBCard>   
+
 </div>
     </div>
+    
   );
 }
 
