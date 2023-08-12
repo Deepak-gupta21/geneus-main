@@ -9,7 +9,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
-const Login = () => {
+const Login = ({ onLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -20,6 +20,7 @@ const Login = () => {
       const { data } = await axios.post('http://localhost:8000/login', { email, password });
       toast.success('Login successful!');
       navigate('/about');
+      onLogin(data.name); 
     } catch (err) {
       toast.error(err.response.data);
     }

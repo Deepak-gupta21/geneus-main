@@ -34,7 +34,8 @@ const hashedPassword = await bcrypt.hash(req.body.password, 10);
 export const login = async (req, res) => {
     const {email, password}=req.body;
     const user=await User.findOne({email}).exec();
-    if(!user) return res.status(400).send("No user found")
+    if(!user) {return res.status(400).send("No user found");
+}
 
     try {
         const match = await bcrypt.compare(password, user.password);
@@ -44,7 +45,8 @@ export const login = async (req, res) => {
             
             const newToken = new Token({ token: refreshToken });
             await newToken.save();
-            res.status(200).json({ accessToken: accessToken, refreshToken: refreshToken,email: user.email, password: user.password,name: user.name });
+            res.status(200).json({ accessToken: accessToken, refreshToken: refreshToken,email: user.email, password: user.password, name: user.name });
+
         } else {
             return res.status(400).send('Password does not match')
         }

@@ -76,7 +76,8 @@ const Blog = () => {
       </MDBCol>
     </MDBRow>
   </MDBCard>
-    </div>
+  </div>
+  
     <div class="cards">
    <MDBCard style={{ maxWidth: '1000px' }}>
       <MDBRow className='g-0'>
@@ -97,11 +98,12 @@ const Blog = () => {
           <MDBCardImage src={blog_3} alt='...' id="img1" fluid className='my-2 pr-2'/>
         </MDBCol>
       </MDBRow>
-    </MDBCard>
+  </MDBCard>   
+
 </div>
     </div>
+    
   );
 }
 
 export default Blog;
-

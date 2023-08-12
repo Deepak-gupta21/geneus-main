@@ -12,7 +12,6 @@ import { MDBIcon } from 'mdbreact';
 import { Link } from 'react-router-dom';
 
 function NavbarComponent({ loggedIn, username }) {
-
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
@@ -55,7 +54,6 @@ function NavbarComponent({ loggedIn, username }) {
                 <Nav.Link href="#action3" className='cart'><h4 className='linkText3'><MDBIcon icon="shopping-cart" size="x"/></h4></Nav.Link>
               </>
             )}
-
            
           </Nav>
         </Navbar.Collapse>
