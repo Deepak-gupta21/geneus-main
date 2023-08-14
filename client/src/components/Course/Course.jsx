@@ -25,7 +25,6 @@ const Course = () => {
   useEffect(() => {
     fetchCourses();
   }, []);
-
   
 const fetchCourses = async () => {
   try {

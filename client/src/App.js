@@ -14,16 +14,21 @@ import Footer from './components/Footer/Footer';
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [username, setUsername] = useState('');
-  
+
   const handleLogin = (name) => {
     setLoggedIn(true);
     setUsername(name);
   };
 
+  const handleLogout = () => {
+    setLoggedIn(false);
+    setUsername('');
+  };
+
   return (
     <Router>
       <ToastContainer theme="colored" position="top-center" />
-      <Navbar loggedIn={loggedIn} username={username} />
+      <Navbar loggedIn={loggedIn} username={username} onLogout={handleLogout} />
       <Routes>
         <Route path="/login" element={<Login onLogin={handleLogin} />} />
         <Route path="/signup" element={<Signup />} />
