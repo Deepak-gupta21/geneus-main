@@ -11,7 +11,11 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { MDBIcon } from 'mdbreact';
 import { Link } from 'react-router-dom';
 
-function NavbarComponent({ loggedIn, username }) {
+function NavbarComponent({ loggedIn, username, onLogout }) {
+  const handleLogout = () => {
+    onLogout();
+  };
+
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
@@ -41,6 +45,9 @@ function NavbarComponent({ loggedIn, username }) {
             {loggedIn ? (
               <>
                 <Nav.Link className="text-primary fw-bold">Hello {username}</Nav.Link>
+                <Nav.Link onClick={handleLogout} className="logout">
+                  <h4 className="linkText">Logout</h4>
+                </Nav.Link>
                 <Nav.Link href="#action3" className='cart'><h4 className='linkText3'><MDBIcon icon="shopping-cart" size="x"/></h4></Nav.Link>
               </>
             ) : (

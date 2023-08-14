@@ -76,3 +76,11 @@ export const contact = async (req, res)=>{
         return res.status(400).send("Error occurred! Please try again later")
     }
 }
+
+
+export const logout = async (req, res) => {
+    const token = req.body.token;
+    await Token.deleteOne({ token: token });
+
+   return res.status(204).send("Logout successfull!");
+}
