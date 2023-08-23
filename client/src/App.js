@@ -10,6 +10,7 @@ import Course from './components/Course/Course';
 import Blog from './components/Blog/Blog';
 import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
+import CourseDescription from './components/CourseDescription/CourseDescription';
 
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -39,6 +40,7 @@ const App = () => {
         <Route path="/courses" element={<Course />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/courseDes/:id" element={<CourseDescription />} />
       </Routes>
       <Footer />
     </Router>

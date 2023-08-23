@@ -1,0 +1,21 @@
+
+.div1{
+  width: 50%;
+  float: left;
+}
+
+.div2{
+  width: 50%;
+  float: right;
+}
+
+.div-margin {
+  margin: 20px;
+}
+
+.ticks{
+  list-style-type: none;
+}
+.ticks li:before {
+  content: '\2714\0020';
+}

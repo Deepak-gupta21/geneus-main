@@ -124,7 +124,7 @@ const fetchCourses = async () => {
                   <strong className="ms-2 text-danger">&#8377;{course.discount_price}</strong>
                 </h6>
                 <div className="text-center">
-                  <MDBBtn href="#">Buy Now</MDBBtn>
+                  <MDBBtn href={`/courseDes/${course._id}`}>Buy Now</MDBBtn>
                 </div>
               </MDBCardBody>
             </MDBCard>
@@ -155,7 +155,7 @@ const fetchCourses = async () => {
                   <strong className="ms-2 text-danger">&#8377;{course.discount_price}</strong>
                 </h6>
                 <div className="text-center">
-                  <MDBBtn href="#">Buy Now</MDBBtn>
+                  <MDBBtn href={`/courseDes/${course._id}`}>Buy Now</MDBBtn>
                 </div>
               </MDBCardBody>
             </MDBCard>
@@ -186,7 +186,7 @@ const fetchCourses = async () => {
                   <strong className="ms-2 text-danger">&#8377;{course.discount_price}</strong>
                 </h6>
                 <div className="text-center">
-                  <MDBBtn href="#">Buy Now</MDBBtn>
+                  <MDBBtn href={`/courseDes/${course._id}`}>Buy Now</MDBBtn>
                 </div>
               </MDBCardBody>
             </MDBCard>
