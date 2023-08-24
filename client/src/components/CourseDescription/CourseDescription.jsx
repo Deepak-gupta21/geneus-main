@@ -7,6 +7,10 @@ import {
   MDBCardTitle,
   MDBCardText,
   MDBCardBody,
+  MDBCardImage,
+  MDBBreadcrumb,
+  MDBBreadcrumbItem,
+  MDBBtn
 } from 'mdb-react-ui-kit';
 import './CourseDescription.css';
 import { useState, useEffect } from 'react';
@@ -14,6 +18,7 @@ import { useState, useEffect } from 'react';
 const CourseDescription = () => {
   
   const [courseDetails, setCourseDetails] = useState({});
+  const [discount, setDiscount] = useState(0);
 
   useEffect(()=> {
     const fetchCourseDetails = async () => {
@@ -34,22 +39,61 @@ const CourseDescription = () => {
   fetchCourseDetails();
   },[]);
 
+  // Calculating the discount percentage dynamically
+  useEffect(()=>{
+    if(courseDetails){
+      const calculateDiscount = () => {
+        const p = courseDetails && courseDetails?.price;
+        const dp = courseDetails && courseDetails?.discount_price;
+        setDiscount(((p-dp)/p)*100);
+      }
+      calculateDiscount();
+    }
+  },[courseDetails])
+
   return (
     <MDBContainer>
       <MDBRow md='2'>
+      
+      <hr className='hr'/>
+      
+      <MDBCard style={{ maxwidth: '1000px' }}>
+        <MDBRow className='g-8'>
+          <MDBBreadcrumb>
+            <MDBBreadcrumbItem>
+              <a href='/about'>Home</a>
+            </MDBBreadcrumbItem>
+            <MDBBreadcrumbItem>
+              <a href="/courses">Courses</a>
+            </MDBBreadcrumbItem>
+            <MDBBreadcrumbItem active>
+              {courseDetails && courseDetails?.title}
+            </MDBBreadcrumbItem>
+          </MDBBreadcrumb>
+        </MDBRow>
+      </MDBCard>
 
-      <MDBCard style={{ maxWidth: '2000px' }}>
+      <hr className='hr'/>
+
+      <MDBCard style={{ maxWidth: '1000px' }}>
       <MDBRow className='g-8'>
-        <MDBCol md='8'>
-          <MDBCardBody>
+        <MDBCol md="6">
+          <MDBCardImage src={courseDetails &&  courseDetails?.img} alt='...' id="img1" fluid className='my-3 pr-3'/>
+        </MDBCol>
+        <MDBCol md='6'>
+          <MDBCardBody className='pb-2'>
             <MDBCardTitle className="mt-2 text-dark fs-2 fw-bold">{courseDetails && courseDetails?.title}</MDBCardTitle>
-          </MDBCardBody>
-          <MDBCardText className="fs-6 fw-normal text-dark">
-            <div className='div-margin'>
-            <p>{courseDetails && courseDetails?.description}</p>
+            <div className='pt-3'>
+              <h6 className='validity'>Validity Period: Lifetime</h6>
+              <div className="mb-1">
+                  <h6 className='mb-1'><s>&#8377;{courseDetails && courseDetails?.price}</s>&ensp;{discount && discount}% OFF</h6>
+                  <strong className="ms-2 text-danger fs-3">&#8377;{courseDetails && courseDetails?.discount_price}</strong>
+              </div>
+              <div>
+                  <MDBBtn size='md' href='#'>Add to Cart</MDBBtn>
+              </div>
             </div>
-
-          </MDBCardText>
+          </MDBCardBody>
         </MDBCol>
       </MDBRow>
     </MDBCard>
@@ -63,7 +107,7 @@ const CourseDescription = () => {
             <MDBCardTitle className="mt-2 text-dark fs-4 fw-bold">What you'll learn</MDBCardTitle>
             
             <MDBCardText className="fs-6 fw-normal">
-            <div>
+            <div className='div-margin'>
             <div className='div1'> 
             <ul className='ticks'>
               {courseDetails && courseDetails?.learnings?.slice(0,3).map((learning, index) => (
@@ -186,6 +230,8 @@ const CourseDescription = () => {
         </MDBCol>
       </MDBRow>
     </MDBCard>
+
+    <hr className='hr'/>
         
       </MDBRow>
     </MDBContainer>
