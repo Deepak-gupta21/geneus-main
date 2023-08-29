@@ -14,11 +14,19 @@ import {
 } from 'mdb-react-ui-kit';
 import './CourseDescription.css';
 import { useState, useEffect } from 'react';
+import reactStringReplace from 'react-string-replace';
 
 const CourseDescription = () => {
   
   const [courseDetails, setCourseDetails] = useState({});
   const [discount, setDiscount] = useState(0);
+  const [len, setLen] = useState(0);
+ 
+  const [formattedCourseIntro, setFormattedCourseIntro] = useState("");
+  const [formattedCourseIntro2, setFormattedCourseIntro2] = useState("");
+  const [formattedCourseOutro, setFormattedCourseOutro] = useState("");
+  const [formattedAboutCourse, setFormattedAboutCourse] = useState([]);
+  const [formattedWhyCourse, setFormattedWhyCourse] = useState([]);
 
   useEffect(()=> {
     const fetchCourseDetails = async () => {
@@ -47,9 +55,41 @@ const CourseDescription = () => {
         const dp = courseDetails && courseDetails?.discount_price;
         setDiscount(((p-dp)/p)*100);
       }
+      const calculateLength = () => {
+        const lenth = courseDetails && courseDetails?.learnings?.length;
+        let halfLen = Math.ceil(lenth/2);
+        setLen(halfLen);
+        console.log(len);
+      }
       calculateDiscount();
+      calculateLength();
     }
-  },[courseDetails])
+  },[courseDetails,len])
+
+  useEffect(() => {
+    const formatText = (text) => {
+      const formattedText = reactStringReplace(text, /\*\*(.*?)\*\*/g, (match, i) => (
+        <span key={i} className='bold'>{match}</span>
+      ));
+      return formattedText;
+    };
+
+    if(courseDetails && courseDetails?.aboutCourse?.intro){
+    setFormattedCourseIntro(formatText(courseDetails && courseDetails?.aboutCourse?.intro));
+    }
+    if(courseDetails && courseDetails?.whythisCourse?.intro){
+    setFormattedCourseIntro2(formatText(courseDetails && courseDetails?.whythisCourse?.intro));
+    }
+    if(courseDetails && courseDetails?.whythisCourse?.outro){
+    setFormattedCourseOutro(formatText(courseDetails && courseDetails?.whythisCourse?.outro));
+    }
+    if(courseDetails && courseDetails?.aboutCourse?.details){
+      setFormattedAboutCourse(courseDetails && courseDetails.aboutCourse.details.map(detail => formatText(detail)));
+    }
+    if(courseDetails && courseDetails?.whythisCourse?.details){
+      setFormattedWhyCourse(courseDetails && courseDetails.whythisCourse.details.map(detail => formatText(detail)));
+    }
+  },[courseDetails]);
 
   return (
     <MDBContainer>
@@ -110,7 +150,7 @@ const CourseDescription = () => {
             <div className='div-margin'>
             <div className='div1'> 
             <ul className='ticks'>
-              {courseDetails && courseDetails?.learnings?.slice(0,3).map((learning, index) => (
+              {courseDetails && courseDetails?.learnings?.slice(0,len && len).map((learning, index) => (
                 <li key={index}>{learning}</li>
               ))}
  
@@ -118,7 +158,7 @@ const CourseDescription = () => {
             </div> 
             <div className='div2'>
             <ul className='ticks'>
-              {courseDetails && courseDetails?.learnings?.slice(3).map((learning, index) => (
+              {courseDetails && courseDetails?.learnings?.slice(len && len).map((learning, index) => (
                 <li key={index}>{learning}</li>
               ))}
             </ul>
@@ -165,12 +205,12 @@ const CourseDescription = () => {
             <div className='div-margin'>
               <h5><b>What's this course about?</b></h5>
               <p>
-              {courseDetails && courseDetails?.aboutCourse?.intro}
+              {formattedCourseIntro && formattedCourseIntro}
               </p>
             </div>
             <div className='div-margin'>
               <ul> 
-                {courseDetails && courseDetails?.aboutCourse?.details?.map((detail, index) => (
+                {formattedAboutCourse && formattedAboutCourse?.map((detail,index) => (
                   <li key={index}>{detail}</li>
                 ))}
               </ul> 
@@ -182,19 +222,19 @@ const CourseDescription = () => {
             <div className='div-margin'>
               <h5><b>Why {courseDetails && courseDetails?.whythisCourse?.title}?</b></h5>
               <p>
-              {courseDetails && courseDetails?.whythisCourse?.intro}
+              {formattedCourseIntro2 && formattedCourseIntro2}
               </p>
             </div>
             <div className='div-margin'>
               <ul>
-              {courseDetails && courseDetails?.whythisCourse?.details?.map((detail, index) => (
+              {formattedWhyCourse && formattedWhyCourse.map((detail,index) => (
                 <li key={index}>{detail}</li>
               ))}
               </ul>
             </div>
             <div className='div-margin'>
               <p>
-              {courseDetails && courseDetails?.whythisCourse?.outro}
+              {formattedCourseOutro && formattedCourseOutro} 
               <br/>
               <b>Enroll now!! see you in class.
                 <br/>
