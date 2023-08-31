@@ -19,7 +19,7 @@ const Login = ({ onLogin }) => {
     try {
       const { data } = await axios.post('http://localhost:8000/login', { email, password });
       toast.success('Login successful!');
-      navigate('/about');
+      navigate('/');
       onLogin(data.name); 
     } catch (err) {
       toast.error(err.response.data);
