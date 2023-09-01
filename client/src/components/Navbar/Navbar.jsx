@@ -16,11 +16,9 @@ function NavbarComponent({ loggedIn, username, onLogout, onSearch }) {
   const handleLogout = () => {
     onLogout();
   };
-
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
   };
-
   const handleSearchSubmit = (event) => {
     event.preventDefault();
     onSearch(searchQuery);
@@ -80,5 +78,4 @@ function NavbarComponent({ loggedIn, username, onLogout, onSearch }) {
     </>
   );
 }
-
 export default NavbarComponent;
