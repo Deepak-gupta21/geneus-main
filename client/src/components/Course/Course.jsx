@@ -18,26 +18,26 @@ import {
   MDBBtn,
 } from 'mdb-react-ui-kit';
 
-const Course = () => {
+const Course = ({ searchResults }) => {
   const [courses, setCourses] = useState([]);
   const [selectedOption, setSelectedOption] = useState('');
 
   useEffect(() => {
     fetchCourses();
   }, []);
-  
-const fetchCourses = async () => {
-  try {
-    const response = await axios.get('http://localhost:8000/courses');
-    setCourses(response.data);
-  } catch (error) {
-    console.error('Failed to fetch course data:', error);
-  }
-};
 
+  const fetchCourses = async () => {
+    try {
+      const response = await axios.get('http://localhost:8000/courses');
+      setCourses(response.data);
+    } catch (error) {
+      console.error('Failed to fetch course data:', error);
+    }
+  };
   const handleDropdownChange = (event) => {
     setSelectedOption(event.target.value);
   };
+
 
   const filteredCourses = courses.filter((course) => {
     if (selectedOption === 'beginner') {
@@ -100,7 +100,16 @@ const fetchCourses = async () => {
       </div>
 
       <MDBRow className="row-cols-1 row-cols-md-4 g-4 mx-5 mb-4 mt-1">
-        {beginnerCourses.map((course) => (
+        {(searchResults.length > 0
+          ? searchResults
+          : selectedOption === 'beginner'
+            ? beginnerCourses
+            : selectedOption === 'intermediate'
+              ? intermediateCourses
+              : selectedOption === 'advanced'
+                ? advancedCourses
+                : courses
+        ).map((course) => (
           <MDBCol key={course.id}>
             <MDBCard className="h-100">
               <MDBCardImage
@@ -124,69 +133,7 @@ const fetchCourses = async () => {
                   <strong className="ms-2 text-danger">&#8377;{course.discount_price}</strong>
                 </h6>
                 <div className="text-center">
-                  <MDBBtn href={`/courseDes/${course._id}`}>Buy Now</MDBBtn>
-                </div>
-              </MDBCardBody>
-            </MDBCard>
-          </MDBCol>
-        ))}
-
-        {intermediateCourses.map((course) => (
-          <MDBCol key={course.id}>
-            <MDBCard className="h-100">
-              <MDBCardImage
-                src={course.img}
-                alt={course.title}
-                position="top"
-              />
-              <MDBCardBody>
-                <MDBCardTitle>{course.title}</MDBCardTitle>
-                <div className="d-flex flex-row justify-content-between">
-                  <div className="text-danger mb-1 me-2">
-                    <MDBIcon fas icon="star" />
-                    <MDBIcon fas icon="star" />
-                    <MDBIcon fas icon="star" />
-                    <MDBIcon fas icon="star" />
-                    <MDBIcon far icon="star" />
-                  </div>
-                </div>
-                <h6 className="mb-1">
-                  <s>&#8377;{course.price}</s>
-                  <strong className="ms-2 text-danger">&#8377;{course.discount_price}</strong>
-                </h6>
-                <div className="text-center">
-                  <MDBBtn href={`/courseDes/${course._id}`}>Buy Now</MDBBtn>
-                </div>
-              </MDBCardBody>
-            </MDBCard>
-          </MDBCol>
-        ))}
-
-        {advancedCourses.map((course) => (
-          <MDBCol key={course.id}>
-            <MDBCard className="h-100">
-              <MDBCardImage
-                src={course.img}
-                alt={course.title}
-                position="top"
-              />
-              <MDBCardBody>
-                <MDBCardTitle>{course.title}</MDBCardTitle>
-                <div className="d-flex flex-row justify-content-between">
-                  <div className="text-danger mb-1 me-2">
-                    <MDBIcon fas icon="star" />
-                    <MDBIcon fas icon="star" />
-                    <MDBIcon fas icon="star" />
-                    <MDBIcon fas icon="star" />
-                    <MDBIcon far icon="star" />
-                  </div>
-                </div>
-                <h6 className="mb-1">
-                  <s>&#8377;{course.price}</s>
-                  <strong className="ms-2 text-danger">&#8377;{course.discount_price}</strong>
-                </h6>
-                <div className="text-center">
-                  <MDBBtn href={`/courseDes/${course._id}`}>Buy Now</MDBBtn>
+                  <MDBBtn href="#">Buy Now</MDBBtn>
                 </div>
               </MDBCardBody>
             </MDBCard>
@@ -198,3 +145,30 @@ const fetchCourses = async () => {
 };
 
 export default Course;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
