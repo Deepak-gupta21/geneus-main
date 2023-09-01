@@ -1,11 +1,10 @@
-
-.div1{
+.div1 {
   width: 50%;
   float: left;
   padding: 16px;
 }
 
-.div2{
+.div2 {
   width: 50%;
   float: right;
   padding: 16px;
@@ -15,19 +14,20 @@
   margin: 20px;
 }
 
-.ticks{
+.ticks {
   list-style-type: none;
   padding-left: 8px;
 }
+
 .ticks li:before {
   content: '\2714\0020';
 }
 
-#img1{
+#img1 {
   max-width: 100%;
   height: auto;
 }
 
-.validity{
+.validity {
   font-size: smaller;
 }
