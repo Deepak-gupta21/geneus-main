@@ -13,7 +13,6 @@ import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
 import CourseDescription from './components/CourseDescription/CourseDescription';
 
-
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [username, setUsername] = useState('');
@@ -69,12 +68,3 @@ const App = () => {
 };
 
 export default App;
-
-
-
-
-
-
-
-
-

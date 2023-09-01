@@ -145,30 +145,3 @@ const Course = ({ searchResults }) => {
 };
 
 export default Course;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
