@@ -12,6 +12,8 @@ import Blog from './components/Blog/Blog';
 import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
 import CourseDescription from './components/CourseDescription/CourseDescription';
+import Cart from './components/Cart/Cart';
+import {createContext, useReducer} from 'react';
 
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -49,9 +51,25 @@ const App = () => {
     setSearchResults(filteredCourses);
   };
 
+  const initialState = 0;
+  const reducer = (state, action) =>{
+    switch(action){
+      case 'increment':
+        return state+1
+      case 'decrement':
+        return state-1;
+      case 'reset':
+        return initialState
+      default:
+        return state
+    }
+  }
+  const [productCount, dispatch] = useReducer(reducer,initialState);
+
   return (
     <Router>
       <ToastContainer theme="colored" position="top-center" />
+      <CartContext.Provider value={{countstate: productCount, countDispatch: dispatch }}>
       <Navbar loggedIn={loggedIn} username={username} onLogout={handleLogout} onSearch={handleSearch} />
       <Routes>
         <Route path="/" element={<Banner />} />
@@ -61,10 +79,12 @@ const App = () => {
         <Route path="/blog" element={<Blog />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/courseDes/:id" element={<CourseDescription />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
+      </CartContext.Provider>
       <Footer />
     </Router>
   );
 };
-
+export const CartContext = createContext();
 export default App;
