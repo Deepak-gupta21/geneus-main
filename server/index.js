@@ -13,6 +13,8 @@ mongoose.connect(process.env.DATABASE)
 app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"));
+app.use(express.static(__dirname));
+
 
 const routes = readdirSync('./routes');
 routes.forEach((r) => {
