@@ -17,6 +17,7 @@ import {
   MDBCol,
   MDBBtn,
 } from 'mdb-react-ui-kit';
+import { Link } from 'react-router-dom';
 
 const Course = ({ searchResults }) => {
   const [courses, setCourses] = useState([]);
@@ -133,7 +134,9 @@ const Course = ({ searchResults }) => {
                   <strong className="ms-2 text-danger">&#8377;{course.discount_price}</strong>
                 </h6>
                 <div className="text-center">
-                  <MDBBtn href={`/courseDes/${course._id}`}>Buy Now</MDBBtn>
+                  <Link to={`/courseDes/${course._id}`}>
+                    <MDBBtn>Buy Now</MDBBtn>
+                  </Link>
                 </div>
               </MDBCardBody>
             </MDBCard>

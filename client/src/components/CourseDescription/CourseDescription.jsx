@@ -13,8 +13,10 @@ import {
   MDBBtn
 } from 'mdb-react-ui-kit';
 import './CourseDescription.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import reactStringReplace from 'react-string-replace';
+import { CartContext } from '../../App';
+import { Link } from 'react-router-dom';
 
 const CourseDescription = () => {
   
@@ -91,6 +93,8 @@ const CourseDescription = () => {
     }
   },[courseDetails]);
 
+  const cartProductCount = useContext(CartContext);
+
   return (
     <MDBContainer>
       <MDBRow md='2'>
@@ -130,7 +134,9 @@ const CourseDescription = () => {
                   <strong className="ms-2 text-danger fs-3">&#8377;{courseDetails && courseDetails?.discount_price}</strong>
               </div>
               <div>
-                  <MDBBtn size='md' href='#'>Add to Cart</MDBBtn>
+                <Link to="#">
+                  <MDBBtn size='md' onClick={() => cartProductCount.countDispatch('increment')}>Add to Cart</MDBBtn>
+                </Link>
               </div>
             </div>
           </MDBCardBody>

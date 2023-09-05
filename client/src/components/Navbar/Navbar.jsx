@@ -9,9 +9,13 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { MDBIcon } from 'mdbreact';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { CartContext } from '../../App';
+import { MDBBadge, } from 'mdbreact';
 
 function NavbarComponent({ loggedIn, username, onLogout, onSearch }) {
   const [searchQuery, setSearchQuery] = useState('');
+  const cartProductCount = useContext(CartContext);
 
   const handleLogout = () => {
     onLogout();
@@ -49,7 +53,6 @@ function NavbarComponent({ loggedIn, username, onLogout, onSearch }) {
                   <Nav.Link onClick={handleLogout} className="logout">
                     <h4 className="linkText">Logout</h4>
                   </Nav.Link>
-                  <Nav.Link href="#action3" className='cart'><h4 className='linkText3'><MDBIcon icon="shopping-cart" size="x" /></h4></Nav.Link>
                 </>
               ) : (
                 <>
@@ -59,9 +62,16 @@ function NavbarComponent({ loggedIn, username, onLogout, onSearch }) {
                   <Nav.Link as={Link} to="/signup" className="signup">
                     <h4 className="linkText2">Sign up</h4>
                   </Nav.Link>
-                  <Nav.Link href="#action3" className='cart'><h4 className='linkText3'><MDBIcon icon="shopping-cart" size="x" /></h4></Nav.Link>
                 </>
               )}
+                <Nav.Link as={Link} to="/cart" >
+                    <h4 className='linkText3'>
+                      <MDBIcon icon="shopping-cart" size="x"/>
+                      <MDBBadge color='primary' className='rounded-pill badge-notification' >
+                        {cartProductCount.countstate}
+                      </MDBBadge>
+                    </h4>
+                </Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
