@@ -5,13 +5,19 @@ import { readdirSync } from 'fs';
 const morgan = require("morgan");
 require("dotenv").config();
 
+const cookieParser = require("cookie-parser");
 const app = express();
 mongoose.connect(process.env.DATABASE)
   .then(() => console.log("DB Connected Successfully"))
   .catch((err) => console.log("DB Connection err =>", err));
 
-app.use(cors());
+app.use(cookieParser());
+app.use(cors({
+  credentials: true,
+  origin: ['http://localhost:3000'],
+}));
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 app.use(express.static(__dirname));
 

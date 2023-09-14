@@ -43,9 +43,15 @@ export const login = async (req, res) => {
             const accessToken = jwt.sign(user.toJSON(), process.env.ACCESS_SECRET_KEY, { expiresIn: '7d'});
             const refreshToken = jwt.sign(user.toJSON(), process.env.REFRESH_SECRET_KEY);
             
-            const newToken = new Token({ token: refreshToken });
-            await newToken.save();
-            res.status(200).json({ accessToken: accessToken, refreshToken: refreshToken,email: user.email, password: user.password, name: user.name });
+            const token = createTokens(user);
+            res.cookie("token",token,{
+                maxAge: 1000*60*5,
+                httpOnly: true,
+                samesite: false,
+            });
+            const dbToken= new Token({token: token});
+            const newToken = await dbToken.save();
+            return res.status(200).json({ accessToken: accessToken, refreshToken: refreshToken,email: user.email, password: user.password, name: user.name, _id: user._id });
 
         } else {
             return res.status(400).send('Password does not match')
@@ -54,6 +60,16 @@ export const login = async (req, res) => {
         return res.status(500).send('Authentication Failed!')
     }
 }
+
+export const createTokens = (user) => {
+    const token = jwt.sign(
+        user.toJSON(),
+        process.env.SECRET_KEY,
+        {expiresIn: "300s", }, 
+    );
+    return token;
+}
+
 export const contact = async (req, res)=>{
     try{
         const {name, email, contact, message} = req.body;
@@ -79,8 +95,14 @@ export const contact = async (req, res)=>{
 
 
 export const logout = async (req, res) => {
-    const token = req.body.token;
-    await Token.deleteOne({ token: token });
-
-   return res.status(204).send("Logout successfull!");
+    try{
+        const token = req.cookies["token"];
+        await Token.deleteOne({token: token});
+        res.clearCookie("token");
+        
+        return res.status(204).json({message: "Logout successfull!"});
+    }
+    catch(err){
+        return res.status(400).json({"Error": err});
+    }
 }

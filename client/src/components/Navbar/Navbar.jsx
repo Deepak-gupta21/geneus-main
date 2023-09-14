@@ -12,14 +12,23 @@ import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { CartContext } from '../../App';
 import { MDBBadge, } from 'mdbreact';
+import axios from 'axios';
+
+axios.defaults.withCredentials = true;
 
 function NavbarComponent({ loggedIn, username, onLogout, onSearch }) {
   const [searchQuery, setSearchQuery] = useState('');
   const cartProductCount = useContext(CartContext);
 
   const handleLogout = () => {
-    onLogout();
+    axios.post("http://localhost:8000/logout")
+    .then((response)=>{
+      console.log(response.data)
+      if(!response.data) onLogout();
+    })
+    .catch((err)=>console.log("error: ",err));
   };
+
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
   };

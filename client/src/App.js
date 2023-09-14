@@ -15,6 +15,8 @@ import CourseDescription from './components/CourseDescription/CourseDescription'
 import Cart from './components/Cart/Cart';
 import {createContext, useReducer} from 'react';
 
+axios.defaults.withCredentials = true;
+
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [username, setUsername] = useState('');
@@ -23,6 +25,7 @@ const App = () => {
 
   useEffect(() => {
     fetchCourses();
+    userDetails(); 
   }, []);
 
   const fetchCourses = async () => {
@@ -33,6 +36,22 @@ const App = () => {
       console.error('Failed to fetch course data:', error);
     }
   };
+
+  const userDetails = async () => {
+    try{
+      const response = await axios.post("http://localhost:8000/userAuth");
+      console.log(response.data);
+      if(!response.data.authorized){
+        setLoggedIn(false);
+        console.log(response.data.authorized); // checking-working
+      } else{
+        handleLogin(response.data.username);
+        console.log(response.data.authorized);// checking-working
+      }
+    } catch(error){
+      console.log("user not logged in :", error);
+    }
+  }
 
   const handleLogin = (name) => {
     setLoggedIn(true);
