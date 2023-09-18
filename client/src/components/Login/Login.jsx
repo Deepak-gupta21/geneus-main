@@ -13,6 +13,8 @@ const Login = ({ onLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  
+  axios.defaults.withCredentials = true;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,9 +22,10 @@ const Login = ({ onLogin }) => {
       const { data } = await axios.post('http://localhost:8000/login', { email, password });
       toast.success('Login successful!');
       navigate('/');
-      onLogin(data.name); 
+      console.log(data);
+      onLogin(data.name);
     } catch (err) {
-      toast.error(err.response.data);
+      toast.error(err);
     }
   };
 
