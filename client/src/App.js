@@ -30,7 +30,7 @@ const App = () => {
 
   const fetchCourses = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/courses');
+      const response = await axios.get('https://geneus-solutions-backend.onrender.com/courses');
       setCourses(response.data);
     } catch (error) {
       console.error('Failed to fetch course data:', error);
@@ -39,7 +39,7 @@ const App = () => {
 
   const userDetails = async () => {
     try{
-      const response = await axios.post("http://localhost:8000/userAuth");
+      const response = await axios.post("https://geneus-solutions-backend.onrender.com/userAuth");
       console.log(response.data);
       if(!response.data.authorized){
         setLoggedIn(false);
